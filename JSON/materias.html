@@ -4,69 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alunos por Curso</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        h1 {
-            text-align: center;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        li {
-            margin-bottom: 10px;
-        }
-    </style>
 </head>
 <body>
     <h1>Alunos por Curso</h1>
-    <div id="alunosPorCurso">
-        <!-- Os alunos por curso serão exibidos aqui -->
+    <div class="alunosPorCurso">
+        
     </div>
 
-    <script>
-        // Função para exibir os alunos por curso
-        function exibirAlunosPorCurso(dados) {
-            const alunosPorCursoDiv = document.getElementById('alunosPorCurso');
-            for (let curso in dados) {
-                const cursoDiv = document.createElement('div');
-                const cursoTitulo = document.createElement('h2');
-                cursoTitulo.textContent = curso;
-                const listaAlunos = document.createElement('ul');
-                dados[curso].forEach(aluno => {
-                    const itemLista = document.createElement('li');
-                    itemLista.textContent = aluno;
-                    listaAlunos.appendChild(itemLista);
-                });
-                cursoDiv.appendChild(cursoTitulo);
-                cursoDiv.appendChild(listaAlunos);
-                alunosPorCursoDiv.appendChild(cursoDiv);
-            }
-        }
-
-        // Função principal
-        function main() {
-            fetch('materias.json') // Carrega o arquivo JSON
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Erro ao carregar o arquivo.');
-                    }
-                    return response.json();
-                })
-                .then(dados => {
-                    exibirAlunosPorCurso(dados); // Exibe os alunos por curso na página
-                })
-                .catch(error => {
-                    console.error('Erro:', error);
-                    const alunosPorCursoDiv = document.getElementById('alunosPorCurso');
-                    alunosPorCursoDiv.textContent = 'Erro ao carregar os dados.';
-                });
-        }
-
-        main(); // Chama a função principal quando a página carrega
-    </script>
+    
+    <script src="script.js"></script>
 </body>
 </html>
+
